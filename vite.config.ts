@@ -19,7 +19,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 // import { viteVConsole } from 'vite-plugin-vconsole'
 export default defineConfig(({ mode }:any) => {
   //获取全局变量使用loadEnv
-  const evelop = loadEnv(mode, process.cwd());
+  const envelop = loadEnv(mode, process.cwd());
   return {
     sourceMap: false,
     resolve:{
@@ -44,7 +44,7 @@ export default defineConfig(({ mode }:any) => {
       // 调试工具
       // viteVConsole({
       //   entry: resolve(__dirname, './src/main.js').replace(/\\/g, '/'),
-      //   localEnabled: evelop.NODE_ENV !== 'production', // dev environment
+      //   localEnabled: envelop.NODE_ENV !== 'production', // dev environment
       //   enabled: mode !== 'production', // build production
       //   config: {
       //       maxLogNumber: 1000,
@@ -54,7 +54,7 @@ export default defineConfig(({ mode }:any) => {
       visualizer(), // 打包后会生成一个stats.html的可视化依赖分析图
     ],
     // 打包的静态资源地址
-    base: evelop.VITE_BASE_URL,
+    base: envelop.VITE_BASE_URL,
     // style 配置
     css: {
       modules: {
@@ -109,7 +109,7 @@ export default defineConfig(({ mode }:any) => {
       cors: true,
       proxy: {
         api: {
-          target: evelop.VITE_APP_API_URL, //请求的数据资源http地址
+          target: envelop.VITE_APP_API_URL, //请求的数据资源http地址
           changeOrigin: true,
           secure: true,
           //rewrite:(path)=>path.replace('/api/','/')
