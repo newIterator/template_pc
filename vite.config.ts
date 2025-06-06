@@ -105,7 +105,7 @@ export default defineConfig(({ mode }:any) => {
     server: {
       host: '0.0.0.0',
       port: "2024",
-      open: "false", // 设置服务启动时是否自动打开浏览器
+      open: true, // 设置服务启动时是否自动打开浏览器
       cors: true,
       proxy: {
         api: {

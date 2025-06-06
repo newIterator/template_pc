@@ -44,6 +44,11 @@ watch(() =>router.currentRoute.value.path,(newValue,oldValue)=> { /** 路由监�
       }
     });
 },{ immediate: true })
+
+fetch("http://127.0.0.1:8000/api/users")
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error("Error:", error));
 </script>
 <style lang="scss" scoped>
 .base-h {
